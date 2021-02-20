@@ -10,7 +10,7 @@ from rich import print
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-zabbix_text = "© 2001–2019, Zabbix SIA"
+zabbix_text = "Zabbix SIA"
 
 banner = """[cyan]
     Zubbix | Zabbix 4.4 - Auth Bypass
