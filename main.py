@@ -14,7 +14,7 @@ zabbix_text = "Zabbix SIA"
 
 banner = """[cyan]
     Zubbix | Zabbix 4.4 - Auth Bypass
-                @opps3c[/]
+                  @opps3c[/]
 """
 
 def clear():
